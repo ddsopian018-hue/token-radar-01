@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Launch Radar — pre-token protocols, ranked</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="mark" aria-hidden="true"><span></span></div>
+    <div>
+      <h1>Launch Radar</h1>
+      <p class="tag">Protocols that record no token yet, ranked by what a launch could be worth — and how to farm each one before it happens.</p>
+    </div>
+  </div>
+  <div class="stamp" id="stamp"></div>
+</header>
+
+<section class="stats" id="stats"></section>
+
+<section class="model" id="model"></section>
+
+<nav class="controls" aria-label="Board controls">
+  <div class="views" role="tablist">
+    <button id="view-board" class="view on" type="button">Radar board</button>
+    <button id="view-live" class="view" type="button">Already live</button>
+  </div>
+  <input id="q" type="search" placeholder="Search name or slug…" aria-label="Search">
+  <select id="cat" aria-label="Category"></select>
+  <select id="chain" aria-label="Chain"></select>
+  <select id="min-tvl" aria-label="Minimum TVL">
+    <option value="0">Any TVL</option>
+    <option value="25000000">TVL ≥ $25M</option>
+    <option value="50000000">TVL ≥ $50M (floor)</option>
+    <option value="100000000">TVL ≥ $100M</option>
+    <option value="500000000">TVL ≥ $500M</option>
+  </select>
+  <label class="check"><input id="watch" type="checkbox"> Watchlist only</label>
+  <select id="sort" aria-label="Sort">
+    <option value="rank">Sort: implied value</option>
+    <option value="tvl">Sort: TVL</option>
+    <option value="chg">Sort: 7d change</option>
+    <option value="age">Sort: age</option>
+    <option value="name">Sort: name</option>
+  </select>
+</nav>
+
+<main class="layout">
+  <section class="board-wrap">
+    <table class="board" id="board">
+      <thead><tr>
+        <th class="num">#</th><th>Protocol</th><th class="num">TVL</th><th class="num">7d</th>
+        <th class="num">Age</th><th class="num">Implied value</th><th>Signal</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <table class="board hidden" id="live-table">
+      <thead><tr>
+        <th>Live token</th><th class="num">Market cap</th><th class="num">TVL</th><th class="num">Mcap / TVL</th><th class="num">7d</th>
+      </tr></thead>
+      <tbody id="live-rows"></tbody>
+    </table>
+    <p class="count" id="count"></p>
+  </section>
+  <aside class="detail" id="detail" aria-label="Protocol detail"></aside>
+</main>
+
+<footer class="foot" id="foot"></footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
